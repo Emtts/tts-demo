@@ -1,0 +1,485 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>acl-demo</title>
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="progres-bar.css">
+    <style>
+    html { min-height:100vh;}
+    body { background-color:#fafafa; font-family:'Roboto'; margin: 45px;}
+    /* .container { margin:150px auto; max-width:960px;} */
+    /* .mediPlayer { margin:20px;} */
+    td { text-align: center;}
+    </style>
+</head>
+<body>
+<!-- <div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript">
+google_ad_client = "ca-pub-2783044520727903";
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div> -->
+<div class="container">
+  <h1 id="Demo for paper" style="font-size:50px"><center> Empathic Machines: Levering Intermediate Features to Emulate Emotions in Text-To-Speech Systems </center></h1>
+<h2 id="abstract">Abstract:</h2>
+<div style="text-align: justify;font-size: 20px">We present a method to control the emotional prosody of Text to Speech (TTS) systems by levering phoneme-level intermediate features (pitch, energy, and duration). As a key idea, we propose Differential Scaling (DS) to disentangle features relating to affective prosody from those arising due to acoustics conditions and speaker identity. With thorough experimental studies, we show that the proposed method improves over the prior art in accurately emulating the desired emotions while retaining the naturalness of speech. We extend the traditional evaluation using individual sentences for a more complete evaluation of HCI systems. We present a novel experimental setup by replacing an actor with a TTS system in offline and live conversations. The emotion to be rendered is either predicted or manually assigned. The results show that the proposed method is strongly preferred over the state-of-the-art TTS system and adds the much-coveted ``human touch" in machine dialogue. </div>
+</div>
+<p><br /></p>
+<h4 style="font-size:20px">1. Fastspeech2, Fcl-taco2, Proposed Differential scaler </h4>
+<div class='images' style='display: grid; grid-template-columns: 30% 68%; grid-gap: 2%'>
+  <div><img src="backbones.png" alt="arch" style='width : 107%;height:107%' /></div>
+  <div><img src="variances.png" alt="arch" style='width : 100%' /></div>
+</div>
+<!-- <center><p><img src="vgg.jpg" alt="arch" /></p> </center> -->
+<h4 style="font-size:20px">2. Demo of TTS with various models </h4>
+<blockquote>
+<table border=1 >
+<div style="text-align: justify;font-size: 20px; margin-bottom: 20px"> The audio samples shows here are generated with various models. Columns are various models, each row is a sample. We compare with prioir art.
+FastSpeech2, Fcl-taco2, Sivaprasad et al.(TTS1), Cai et al. (TTS2).</div>
+<thead>
+<tr>
+<th align="center"><span>Samples</span></th>
+<th align="center"><span>FastSpeech2</span></th>
+<th align="center"><span>Fcl-taco2</span></th>
+<th align="center"><span>FastSpeech2+</span></th>
+<th align="center"><span>TTS2<span></th>
+<th align="center"><span>TTS1<span></th>
+<th align="center"><span>Fcl-taco2+ with DS<span></th>
+<th align="center"><span>FastSpeech2+ with DS<span></th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td width:2000px>"A friendly waiter taught me a few words of Italian."</td>
+<td class="mediPlayer"><audio class="listen" data-size="30" src="demo/fs2/A friendly waiter taught me a few words of Italian..wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/fcl/A friendly waiter taught me a few words of Italian..wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/baseline/A friendly waiter taught me a few words of Italian..wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/cross/A friendly waiter taught me a few words of Italian..wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/Interspeech/A friendly waiter taught me a few words of Italian..wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/fcl+fs2/A friendly waiter taught me a few words of Italian..wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/A friendly waiter taught me a few words of Italian..wav"></audio></td>
+</tr>
+<tr>
+  <td width:1000px>"I visited museums and sat in public gardens."</td>
+  <td class="mediPlayer"><audio class="listen" data-size="30" src="demo/fs2/I visited museums and sat in public gardens..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/fcl/I visited museums and sat in public gardens..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/baseline/I visited museums and sat in public gardens..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/cross/I visited museums and sat in public gardens..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/Interspeech/I visited museums and sat in public gardens..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/fcl+fs2/I visited museums and sat in public gardens..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/I visited museums and sat in public gardens..wav"></audio></td>
+</tr>
+<tr>
+  <td>"Shattered windows and the sound of drums."</td>
+  <td class="mediPlayer"><audio class="listen" data-size="30" src="demo/fs2/Shattered windows and the sound of drums..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/fcl/Shattered windows and the sound of drums..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/baseline/Shattered windows and the sound of drums..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/cross/Shattered windows and the sound of drums..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/Interspeech/Shattered windows and the sound of drums..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/fcl+fs2/Shattered windows and the sound of drums..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/Shattered windows and the sound of drums..wav"></audio></td>
+</tr>
+<tr>
+  <td>"He thought it was time to present the present."</td>
+  <td class="mediPlayer"><audio class="listen" data-size="30" src="demo/fs2/He thought it was time to present the present..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/fcl/He thought it was time to present the present..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/baseline/He thought it was time to present the present..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/cross/He thought it was time to present the present..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/Interspeech/He thought it was time to present the present..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/fcl+fs2/He thought it was time to present the present..wav"></audio></td>
+  <td class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/He thought it was time to present the present..wav"></audio></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</blockquote>
+
+<h4 style="font-size:20px">3. Dialogues with and without emotion.</h4>
+<div id='dia-container' style='display:grid; grid-template-columns: 49% 49%; grid-gap: 2%'>
+<div style='display: grid; width: 45%;'>
+  <div><img src="demo/dialogues/dino.png" alt="arch" style='width : 100%; height : 198px' /></div>
+  <div style='display: flex; justify-content: space-evenly; margin-top: 10px'>
+    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>No emotion</span><audio class="listen" data-size="50" src="demo/dialogues/Get away from the monster._4_4.wav"></audio></div>
+    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>With emotion</span><audio class="listen" data-size="50" src="demo/dialogues/Get away from the monster._6_2_2.wav"></audio></div>
+  </div>
+</div>
+<div style='display: grid; width: 45%;'>
+  <div><img src="demo/dialogues/v.png" alt="arch" style='width : 100%; height : 198px' /></div>
+  <div style='display: flex; justify-content: space-evenly; margin-top: 10px'>
+    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>No emotion</span><audio class="listen" data-size="50" src="demo/dialogues/v_n.wav"></audio></div>
+    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>With emotion</span><audio class="listen" data-size="50" src="demo/dialogues/v.wav"></audio></div>
+  </div>
+</div>
+
+<div style='display: grid; width: 45%;'>
+  <div><img src="demo/dialogues/oz.png" alt="arch" style='width : 100%; height : 198px' /></div>
+  <div style='display: flex; justify-content: space-evenly; margin-top: 10px'>
+    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>No emotion</span><audio class="listen" data-size="50" src="demo/dialogues/There is no place like home._4_4.wav"></audio></div>
+    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>With emotion</span><audio class="listen" data-size="50" src="demo/dialogues/There is no place like home._6_6_6.wav"></audio></div>
+  </div>
+</div>
+
+<div style='display: grid; width: 45%;'>
+  <div><img src="demo/dialogues/harry.png" alt="arch" style='width : 100%; height : 198px' /></div>
+  <div style='display: flex; justify-content: space-evenly; margin-top: 10px'>
+    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>No emotion</span><audio class="listen" data-size="50" src="demo/dialogues/Not my daughter, you devil._4_4_4.wav"></audio></div>
+    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>With emotion</span><audio class="listen" data-size="50" src="demo/dialogues/Not my daughter, you devil._6_3_6.wav"></audio></div>
+  </div>
+</div>
+
+<div style='display: grid; width: 45%;'>
+  <div><img src="demo/dialogues/lala.png" alt="arch" style='width : 100%; height : 198px' /></div>
+  <div style='display: flex; justify-content: space-evenly; margin-top: 10px'>
+    <div class="mediPlayer" style='display:flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>No emotion</span><audio class="listen" data-size="50" src="demo/dialogues/land_n.wav"></audio></div>
+    <div class="mediPlayer" style='display:flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>With emotion</span><audio class="listen" data-size="50" src="demo/dialogues/land.wav"></audio></div>
+  </div>
+</div>
+<div style='display: grid; width: 45%;'>
+  <div><img src="demo/dialogues/matrix.png" alt="arch" style='width : 100%; height : 198px' /></div>
+  <div style='display: flex; justify-content: space-evenly; margin-top: 10px'>
+    <div class="mediPlayer" style='display:flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>No emotion</span><audio class="listen" data-size="50" src="demo/dialogues/matrix_n.wav"></audio></div>
+    <div class="mediPlayer" style='display:flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>With emotion</span><audio class="listen" data-size="50" src="demo/dialogues/matrix_e.wav"></audio></div>
+  </div>
+</div>
+</div>
+
+
+<h4 style="font-size:20px;margin-top:70px">4. Emotion Control in Arousal (Y-axis),Valance (X-axis) space (Constant Dominance). </h4>
+<blockquote>
+<div id='graphs-container' style='display:grid; grid-template-rows: 49% 49%; grid-gap:2%'>
+
+  <div>
+    <div style='margin: 20px 0px'>1. Remember what she said in my last letter.</div>
+    <div id='graph1' style='display: grid; grid-template-columns: 50% 50%;width:68%; grid-template-rows: 50% 50%; height :380px; max-width:500px'>
+      <div class= 'topLeft'style='border-right: 1px solid rgb(126, 113, 113,0.3);border-bottom : 1px solid rgb(126, 113, 113,0.3);padding-right: 20px; padding-bottom: 20px; display :grid; grid-template-rows: 33% 33% 33%; grid-template-columns: 33% 33% 33%'>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_1_7.wav"></audio> </div>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_1_6.wav"></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_2_6.wav"></audio> </div>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><span style='position: absolute; left: 12px;top:77px; font-size: 10px;'>-3</span><audio class="listen" data-size="50" src="demo/graph/1_1_5.wav"></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_2_5.wav"></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_3_5.wav"></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px;left:212px;top:8px; margin: auto; position: relative;"><span style='position: absolute; left: 12px;top:29px; font-size: 10px;'>0</span><audio class="listen" data-size="50" src="demo/graph/1_4_4.wav"></audio> </div>
+
+        <div class="mediPlayer" style="display: flex; justify-content: center; top:8px; align-items: center; width: 30px; margin: auto; position: relative;"><span style='position: absolute; left: 12px;top:29px; font-size: 10px;'>-2</span><audio class="listen" data-size="50" src="demo/graph/1_2_4.wav"></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; top:8px;align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_3_4.wav"></audio> </div>
+
+      </div>
+      <div class= 'topRight' style='border-bottom : 1px solid rgb(126, 113, 113,0.3);padding-bottom:20px;padding-left: 20px; display :grid; grid-template-rows: 33% 33% 33%; grid-template-columns: 33% 33% 33%'>
+
+        <div style='position: relative; left: -5px;top:20px; font-size: 10px;'>3</div>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_7_7.wav"></audio> </div>
+        <!--div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div-->
+        <div style='position: relative; left: -5px;top:20px; font-size: 10px;'>2</div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_6_6.wav"></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_7_6.wav"></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><span style='position: absolute; left: -29px; font-size: 10px;'>1</span><audio class="listen" data-size="50" src="demo/graph/1_5_5.wav"></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_6_5.wav"></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_7_5.wav"></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center;top:8px; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_5_4.wav"></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center;top:8px; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_6_4.wav"></audio> </div>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+
+      </div>
+      <div class= 'bottomLeft' style='border-right: 1px solid rgb(126, 113, 113,0.3);display :grid;padding-top :20px;padding-right: 20px;grid-template-rows: 33% 33% 33%; grid-template-columns: 33% 33% 33%'>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center;left:136px; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_4_3.wav"></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><span style='position: absolute; top: -20px; font-size: 10px;'>-1</span><audio class="listen" data-size="50" src="demo/graph/1_3_3.wav"></audio> </div>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px;left:136px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_4_2.wav"></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/1_3_2.wav"></audio> </div>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+      </div>
+      <div class= 'bottomRight' style='display :grid; grid-template-rows: 33% 33% 33%; padding-top: 20px; padding-left: 20px;grid-template-columns: 33% 33% 33%'>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><span style='position: absolute; top: -20px; font-size: 10px;'>1</span><span style='position: absolute; left: -29px; font-size: 10px;'>-1</span><audio class="listen" data-size="50" src="demo/graph/1_5_3.wav"></audio> </div>
+        <div style='position: relative; top: -7px;left:43px; font-size: 10px;'>2</div>
+  <div style='position: relative; top: -7px;left:43px; font-size: 10px;'>3</div>
+        <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><span style='position: absolute; left: -29px; font-size: 10px;'>-2</span><audio class="listen" data-size="50" src="demo/graph/1_5_2.wav"></audio> </div>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+  <div style='position: relative; left: -5px;top:20px; font-size: 10px;'>-3</div>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+        <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div style='margin: 20px 0px'>2. There is no place like home.</div>
+  <div id='graph2' style='display: grid; grid-template-columns: 50% 50%;width:68%;grid-template-rows: 50% 50%; height :380px; max-width:500px'>
+    <div class= 'topLeft'style='border-right: 1px solid rgb(126, 113, 113,0.3);border-bottom : 1px solid rgb(126, 113, 113,0.3);padding-right: 20px; padding-bottom: 20px; display :grid; grid-template-rows: 33% 33% 33%; grid-template-columns: 33% 33% 33%'>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._1_7.wav"></audio> </div>
+      <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+      <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._1_6.wav"></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._2_6.wav"></audio> </div>
+      <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><span style='position: absolute; left: 12px;top:77px; font-size: 10px;'>-3</span><audio class="listen" data-size="50" src="demo/graph/There is no place like home._1_5.wav"></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._2_5.wav"></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._3_5.wav"></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px;left:212px;top:8px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._4_4.wav"></audio> </div>
+
+      <div class="mediPlayer" style="display: flex; justify-content: center; top:8px; align-items: center; width: 30px; margin: auto; position: relative;"><span style='position: absolute; left: 12px;top:29px; font-size: 10px;'>-2</span><audio class="listen" data-size="50" src="demo/graph/There is no place like home._2_4.wav"></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; top:8px;align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._3_4.wav"></audio> </div>
+
+    </div>
+    <div class= 'topRight' style='border-bottom : 1px solid rgb(126, 113, 113,0.3);padding-bottom:20px;padding-left: 20px; display :grid; grid-template-rows: 33% 33% 33%; grid-template-columns: 33% 33% 33%'>
+
+      <div style='position: relative; left: -5px;top:20px; font-size: 10px;'>3</div>
+      <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._7_7.wav"></audio> </div>
+      <!--div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div-->
+      <div style='position: relative; left: -5px;top:20px; font-size: 10px;'>2</div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._6_6.wav"></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._7_6.wav"></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><span style='position: absolute; left: -29px; font-size: 10px;'>1</span><audio class="listen" data-size="50" src="demo/graph/There is no place like home._5_5.wav"></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._6_5.wav"></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._7_5.wav"></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center;top:8px; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._5_4.wav"></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center;top:8px; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._6_4.wav"></audio> </div>
+      <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+
+    </div>
+    <div class= 'bottomLeft' style='border-right: 1px solid rgb(126, 113, 113,0.3);display :grid;padding-top :20px;padding-right: 20px;grid-template-rows: 33% 33% 33%; grid-template-columns: 33% 33% 33%'>
+      <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center;left:136px; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._4_3.wav"></audio> </div>
+    <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><span style='position: absolute; top: -20px; font-size: 10px;'>-1</span><audio class="listen" data-size="50" src="demo/graph/There is no place like home._3_3.wav"></audio> </div>
+      <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px;left:136px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._4_2.wav"></audio> </div>
+    <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src="demo/graph/There is no place like home._3_2.wav"></audio> </div>
+      <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+      <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+      <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+    </div>
+    <div class= 'bottomRight' style='display :grid; grid-template-rows: 33% 33% 33%; padding-top: 20px; padding-left: 20px;grid-template-columns: 33% 33% 33%'>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><span style='position: absolute; top: -20px; font-size: 10px;'>1</span><span style='position: absolute; left: -29px; font-size: 10px;'>-1</span><audio class="listen" data-size="50" src="demo/graph/There is no place like home._5_3.wav"></audio> </div>
+      <div style='position: relative; top: -7px;left:43px; font-size: 10px;'>2</div>
+      <div style='position: relative; top: -7px;left:43px; font-size: 10px;'>3</div>
+      <div class="mediPlayer" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><span style='position: absolute; left: -29px; font-size: 10px;'>-2</span><audio class="listen" data-size="50" src="demo/graph/There is no place like home._5_2.wav"></audio> </div>
+      <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+      <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+      <div style='position: relative; left: -5px;top:20px; font-size: 10px;'>-3</div>
+            <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+      <div class="text" style="display: flex; justify-content: center; align-items: center; width: 30px; margin: auto; position: relative;"><audio class="listen" data-size="50" src=""></audio> </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</blockquote>
+
+
+<h4 style="font-size:20px">5. Demo of Emotion control in various Models </h4>
+<blockquote>
+<table border=1>
+<div style="text-align: justify;font-size: 20px; margin-bottom: 20px"> A sample of a speaker is attacked only the particular time frames to the given target speaker.  </div>
+<tr>
+<td align="center"><span>Emotions</span></td>
+<td align="center"><span>TTS1</span></td>
+<td align="center"><span>TTS2<span></td>
+<td align="center"><span>Fcl-taco2 with DS</span></td>
+<td align="center"><span>FastSpeech2+ with DS<span></td>
+</tr>
+<tr>
+<td>Angry</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50" src="demo/Interspeech/6_1_step_580000_melgan_For some reason, I can't explain..wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50" src="demo/Interspeech/6_1_step_580000_melgan_On the last day I made a big decision..wav"></audio></div>
+</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/cross/eval-150000-emo-1_For_some_reason_I_can_t_explain.wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/cross/eval-150000-emo-1_On_the_last_day_I_made_a_big_decision.wav"></audio></div>
+</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/fcl+fs2/7_6_3_6.npy_gen.wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/fcl+fs2/13_6_3_6.npy_gen.wav"></audio></div>
+</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/For some reason, I can't explain._7_1.wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/On the last day I made a big decision._6_3_6.wav"></audio></div>
+</td>
+</tr>
+<tr>
+<td>Fear</td>
+<td >
+  <!--div class="text">-</audio></div-->
+  <div class="text">-</audio></div>
+</td>
+<td >
+  <!--div class="text">-</audio></div-->
+  <div class="text">-</audio></div>
+</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/fcl+fs2/7_6_3_2.npy_gen.wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/fcl+fs2/13_6_3_2.npy_gen.wav"></audio></div>
+</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/For some reason, I can't explain._6_3_2.wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/On the last day I made a big decision._1_6_2.wav"></audio></div>
+</td>
+</tr>
+<tr>
+<td>Sad</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50" src="demo/Interspeech/1_1_step_580000_melgan_For some reason, I can't explain..wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50" src="demo/Interspeech/1_5_step_580000_melgan_On the last day I made a big decision..wav"></audio></div>
+</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/cross/eval-150000-emo-3_For_some_reason_I_can_t_explain.wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/cross/eval-150000-emo-3_On_the_last_day_I_made_a_big_decision.wav"></audio></div>
+</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/fcl+fs2/7_2_6_2.npy_gen.wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/fcl+fs2/13_2_2_4.npy_gen.wav"></audio></div>
+</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/For some reason, I can't explain._2_3_3.wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/On the last day I made a big decision._2_3_3.wav"></audio></div>
+</td>
+</tr>
+<tr>
+<td>Happy</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50" src="demo/Interspeech/6_6_step_580000_melgan_For some reason, I can't explain..wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50" src="demo/Interspeech/6_6_step_580000_melgan_On the last day I made a big decision..wav"></audio></div>
+</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/cross/eval-150000-emo-2_For_some_reason_I_can_t_explain.wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/cross/eval-150000-emo-2_On_the_last_day_I_made_a_big_decision.wav"></audio></div>
+</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/fcl+fs2/7_6_6_2.npy_gen.wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/fcl+fs2/13_6_6_6.npy_gen.wav"></audio></div>
+</td>
+<td >
+  <!--div class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/For some reason, I can't explain._7_6_6.wav"></audio></div-->
+  <div class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/On the last day I made a big decision._5_7_6.wav"></audio></div>
+</td>
+</tr>
+<tr>
+  <td>Neutral</td>
+
+  <td >
+    <!--div class="mediPlayer"><audio class="listen" data-size="50" src="demo/Interspeech/4_4_step_580000_melgan_For some reason, I can't explain..wav"></audio></div-->
+    <div class="mediPlayer"><audio class="listen" data-size="50" src="demo/Interspeech/4_4_step_580000_melgan_On the last day I made a big decision..wav"></audio></div>
+  </td>
+  <td >
+    <!--div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/cross/eval-150000-emo-0_For_some_reason_I_can_t_explain.wav"></audio></div-->
+    <div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/cross/eval-150000-emo-0_On_the_last_day_I_made_a_big_decision.wav"></audio></div>
+  </td>
+  <td >
+    <!--div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/fcl+fs2/7_4_4_4.npy_gen.wav"></audio></div-->
+    <div class="mediPlayer"><audio class="listen" data-size="50"  src="demo/fcl+fs2/13_4_4_4.npy_gen.wav"></audio></div>
+  </td>
+  <td >
+    <!--div class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/For some reason, I can't explain._4_4_4.wav"></audio></div-->
+    <div class="mediPlayer"><audio class="listen" data-size="50" src="demo/fs2_final/On the last day I made a big decision._4_4_4.wav"></audio></div>
+  </td>
+</tr>
+
+</table>
+<br/>
+</blockquote>
+
+<h4 style="font-size:20px">6. Demo of Theatre experiment.</h4>
+<blockquote>
+<table border=1>
+<div style="text-align: justify;font-size: 20px; margin-bottom: 20px">We present the threate conversations where one of the actor is replaced with a
+   TTS system. We use FastSpeech2+ as our baseline. We compare the conversations
+   generated with FastSpeech2+, our model with emotions predicted from ERC model and our model with hand picked emotions by senior theatre director </div>
+<tr>
+  <td align="center"><span>Dialogues</span></td>
+<td align="center"><span>FastSpeech2+</span></td>
+<td align="center"><span>Our model + predicted emotions</span></td>
+<td align="center"><span>Our model + Hand picked emotions</span></td>
+</tr>
+<tr>
+  <td>Death of a salesman</td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/plays/fastspeech2.wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/plays/preds.wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/plays/emotion.wav"></audio></td>
+
+</tr>
+<tr>
+  <td>Hell</td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/plays/3_o.wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/plays/3_p.wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/plays/3_e.wav"></audio></td>
+
+</tr>
+<tr>
+  <td>Speed the plow</td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/plays/4_o.wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/plays/4_p.wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/plays/4_e.wav"></audio></td>
+</tr>
+<tr>
+  <td>Night' Mother</td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/plays/6_o.wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/plays/6_p.wav"></audio></td>
+<td class="mediPlayer"><audio class="listen" data-size="50" src="demo/plays/6_e.wav"></audio></td>
+</tr>
+</table>
+<br/>
+</blockquote>
+</blockquote>
+
+<h4 style="font-size:20px">7. Demo of how human behavior changes when he is interacting with TTS without emotion, TTS with emotion and Human</h4>
+<div style='display: grid; width: 50%;'>
+
+  <div style='display: flex; justify-content: space-evenly; margin-top: 20px;'>
+    <div class="mediPlayer"><span style='position: relative; left: 85px;top:18px; font-size: 15px;'>TTS without Emotion</span><audio class="listen" data-size="50" src="demo/meisner/tts.wav"></audio></div>
+    <div class="mediPlayer"><span style='position: relative; left: 78px;top:18px; font-size: 15px;'>TTS with Emotion</span><audio class="listen" data-size="50" src="demo/meisner/mb.wav"></audio></div>
+    <div class="mediPlayer"><span style='position: relative; left: 38px;top:18px; font-size: 15px;'>Human</span><audio class="listen" data-size="50" src="demo/meisner/Human.wav"></audio></div>
+
+  </div>
+</div>
+<blockquote>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="player.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.mediPlayer').mediaPlayer();
+    });
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
