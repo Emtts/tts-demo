@@ -34,11 +34,16 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </div> -->
 <div class="container">
   <h1 id="Demo for paper" style="font-size:50px"><center> Empathic Machines: Levering Intermediate Features to Emulate Emotions in Text-To-Speech Systems </center></h1>
-<h2 id="abstract">Abstract:</h2>
-<div style="text-align: justify;font-size: 20px">We present a method to control the emotional prosody of Text to Speech (TTS) systems by levering phoneme-level intermediate features (pitch, energy, and duration). As a key idea, we propose Differential Scaling (DS) to disentangle features relating to affective prosody from those arising due to acoustics conditions and speaker identity. With thorough experimental studies, we show that the proposed method improves over the prior art in accurately emulating the desired emotions while retaining the naturalness of speech. We extend the traditional evaluation of using individual sentences for a more complete evaluation of HCI systems. We present a novel experimental setup by replacing an actor with a TTS system in offline and live conversations. The emotion to be rendered is either predicted or manually assigned. The results show that the proposed method is strongly preferred over the state-of-the-art TTS system and adds the much-coveted ``human touch'' in machine dialogue. </div>
+<!--h2 id="abstract">Abstract:</h2-->
+<div style="text-align: justify;font-size: 20px">We present a method to control the emotional prosody of Text to Speech (TTS) systems by levering phoneme-level intermediate features (pitch, energy, and duration). As a key idea, we propose Differential Scaling (DS) to disentangle features relating to affective prosody from those arising due to acoustics conditions and speaker identity. With thorough experimental studies, we show that the proposed method improves over the prior art in accurately emulating the desired emotions while retaining the naturalness of speech. We extend the traditional evaluation of using individual sentences for a more complete evaluation of HCI systems. We present a novel experimental setup by replacing an actor with a TTS system in offline and live conversations. The emotion to be rendered is either predicted or manually assigned. The results show that the proposed method is strongly preferred over the state-of-the-art TTS system and adds the much-coveted "human touch" in machine dialogue.
 </div>
+<br>
+<br>
+<div style="text-align: justify;font-size: 20px"> Note: The samples take little time load. Please wait sometime for the samples to load.</div>
+</div>
+
 <p><br /></p>
-<h4 style="font-size:20px">1. Fastspeech2, Fcl-taco2, Proposed method - Emotional Variation Adaptor (EVA), Differential scalar (DS) </h4>
+<h4 style="font-size:20px">1. Fastspeech2, Fcl-Taco2, Proposed method - Emotional Variation Adaptor (EVA), Differential scalar (DS) </h4>
 <div class='images' style='display: grid; grid-template-columns: 30% 68%; grid-gap: 2%'>
   <div><img src="backbones.png" alt="arch" style='width : 107%;height:107%' /></div>
   <div><img src="variances.png" alt="arch" style='width : 100%' /></div>
@@ -49,16 +54,17 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <blockquote>
 <table border=1 style='margin :auto'>
 <div style="text-align: justify;font-size: 20px; margin-bottom: 20px"> The audio samples shown here are generated with various models. Columns are various models, each row corresponds to single text. We compare with the following prioir art-
-FastSpeech2, Fcl-taco2, Cai et al (TTS1) - "Emotion controllable speech synthesis using emotion-unlabeled dataset with the assistance of cross-domain speech emotion recognition." and Sivaprasad et al. (TTS2) - Emotional prosody control for speech generation.</div>
+FastSpeech2, Fcl-Taco2, Cai et al (TTS1) - "Emotion controllable speech synthesis using emotion-unlabeled dataset with the assistance of cross-domain speech emotion recognition." and Sivaprasad et al. (TTS2) - Emotional prosody control for speech generation.
+These are for just evaluating the naturalness of synthesized speech. For emotive models the samples are shown with randomly picked emotion.</div>
 <thead>
 <tr>
 <th align="center"><span>Samples</span></th>
 <th align="center"><span>FastSpeech2</span></th>
-<th align="center"><span>Fcl-taco2</span></th>
+<th align="center"><span>Fcl-Taco2</span></th>
 <th align="center"><span>FastSpeech2π </span></th>
 <th align="center"><span>TTS1<span></th>
 <th align="center"><span>TTS2<span></th>
-<th align="center"><span>Fcl-taco2 + DS(Our model)<span></th>
+<th align="center"><span>Fcl-Taco2 + DS(Our model)<span></th>
 <th align="center"><span>FastSpeech2π + DS(Our model)<span></th>
 
 </tr>
@@ -111,18 +117,19 @@ FastSpeech2, Fcl-taco2, Cai et al (TTS1) - "Emotion controllable speech synthesi
 
 
 <h4 style="font-size:20px">2. Dialogues with and without emotion.</h4>
+<div style='margin: 20px 0px'>Some of the famous dialogues from the movies generated with FastSpeech2π (Without emotion) and FastSpeech2π + DS (With Emotion) </div>
 <div id='dia-container' style='display:grid; grid-template-columns: 49% 49%; grid-gap: 2%'>
 <div style='display: grid; width: 45%; margin: auto '>
   <div><img src="demo/dialogues/dino.png" alt="arch" style='width : 100%; height : 198px' /></div>
   <div style='display: flex; justify-content: space-evenly; margin-top: 10px'>
-    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>No emotion</span><audio class="listen" data-size="50" src="demo/dialogues/Get away from the monster._4_4.wav"></audio></div>
+    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>Without emotion</span><audio class="listen" data-size="50" src="demo/dialogues/Get away from the monster._4_4.wav"></audio></div>
     <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>With emotion</span><audio class="listen" data-size="50" src="demo/dialogues/Get away from the monster._6_2_2.wav"></audio></div>
   </div>
 </div>
 <div style='display: grid; width: 45%; margin: auto'>
   <div><img src="demo/dialogues/v.png" alt="arch" style='width : 100%; height : 198px' /></div>
   <div style='display: flex; justify-content: space-evenly; margin-top: 10px'>
-    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>No emotion</span><audio class="listen" data-size="50" src="demo/dialogues/v_n.wav"></audio></div>
+    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>Without emotion</span><audio class="listen" data-size="50" src="demo/dialogues/v_n.wav"></audio></div>
     <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>With emotion</span><audio class="listen" data-size="50" src="demo/dialogues/v.wav"></audio></div>
   </div>
 </div>
@@ -130,7 +137,7 @@ FastSpeech2, Fcl-taco2, Cai et al (TTS1) - "Emotion controllable speech synthesi
 <div style='display: grid; width: 45%; margin: auto'>
   <div><img src="demo/dialogues/oz.png" alt="arch" style='width : 100%; height : 198px' /></div>
   <div style='display: flex; justify-content: space-evenly; margin-top: 10px'>
-    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>No emotion</span><audio class="listen" data-size="50" src="demo/dialogues/There is no place like home._4_4.wav"></audio></div>
+    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>Without emotion</span><audio class="listen" data-size="50" src="demo/dialogues/There is no place like home._4_4.wav"></audio></div>
     <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>With emotion</span><audio class="listen" data-size="50" src="demo/dialogues/There is no place like home._6_6_6.wav"></audio></div>
   </div>
 </div>
@@ -138,7 +145,7 @@ FastSpeech2, Fcl-taco2, Cai et al (TTS1) - "Emotion controllable speech synthesi
 <div style='display: grid; width: 45%; margin: auto'>
   <div><img src="demo/dialogues/harry.png" alt="arch" style='width : 100%; height : 198px' /></div>
   <div style='display: flex; justify-content: space-evenly; margin-top: 10px'>
-    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>No emotion</span><audio class="listen" data-size="50" src="demo/dialogues/Not my daughter, you devil._4_4_4.wav"></audio></div>
+    <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>Without emotion</span><audio class="listen" data-size="50" src="demo/dialogues/Not my daughter, you devil._4_4_4.wav"></audio></div>
     <div class="mediPlayer" style='display : flex; flex-direction : column-reverse; align-items : center'><span style='font-size: 15px; margin : auto'>With emotion</span><audio class="listen" data-size="50" src="demo/dialogues/Not my daughter, you devil._6_3_6.wav"></audio></div>
   </div>
 </div>
@@ -302,7 +309,7 @@ FastSpeech2, Fcl-taco2, Cai et al (TTS1) - "Emotion controllable speech synthesi
 <td align="center"><span>Emotions</span></td>
 <td align="center"><span>TTS1</span></td>
 <td align="center"><span>TTS2<span></td>
-<td align="center"><span>Fcl-taco2 + DS</span></td>
+<td align="center"><span>Fcl-Taco2 + DS</span></td>
 <td align="center"><span>FastSpeech2π + DS<span></td>
 </tr>
 <tr>
@@ -412,9 +419,9 @@ FastSpeech2, Fcl-taco2, Cai et al (TTS1) - "Emotion controllable speech synthesi
 <h4 style="font-size:20px">6. Demo of Theatre experiment.</h4>
 <blockquote>
 <table border=1 style='margin :auto'>
-<div style="text-align: justify;font-size: 20px; margin-bottom: 20px">We present the threate conversations where one of the actor is replaced with a
-   TTS system. We use FastSpeech2π as our baseline. We compare the conversations
-   generated with FastSpeech2π, our model with emotions predicted from "Emotion Recognition in Conversations (ERC)" model and our model with hand picked emotions by senior theatre director </div>
+<div style="text-align: justify;font-size: 20px; margin-bottom: 20px">We present the threatre conversations where one of the actor(female) is replaced with a
+   TTS system as shown in section 5.2. We use FastSpeech2π as our baseline. We compare the conversations
+   generated with FastSpeech2π, our model with emotions predicted from "Emotion Recognition in Conversations (ERC)" model and our model with hand picked emotions by senior theatre director. </div>
 <tr>
   <td align="center"><span>Dialogues</span></td>
 <td align="center"><span>FastSpeech2π</span></td>
